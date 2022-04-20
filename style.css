@@ -1,0 +1,35 @@
+
+#color-palette {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  #color-palette li {
+    align-items: center;
+    display: flex;
+    flex-flow: column wrap;
+    height: 100px;
+    justify-content: center;
+    margin: 2px;
+    padding: 15px;
+    text-align: center;
+    transition: all 0.25s ease;
+    width: 100px;
+    border: solid black 1px;
+  }
+
+  #color-palette li:nth-of-type(1) {
+    background-color: black;
+  }
+  
+  #color-palette li:nth-of-type(2) {
+    background-color: #006dfb;
+  }
+  
+  #color-palette li:nth-of-type(3) {
+    background-color: #41197f;
+  }
+
+  #color-palette li:nth-of-type(4) {
+    background-color: red;
+  }
