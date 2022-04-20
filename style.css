@@ -3,6 +3,7 @@
     height: 100px;
     display: inline-block;
     margin: -2px;
+    border: black solid 1px;
   }
 
   #color-palette li:nth-of-type(1) {
