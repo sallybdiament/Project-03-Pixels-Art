@@ -76,3 +76,11 @@ selectAllPixels[i].style.backgroundColor = "white";
 //   thirdLi.addEventListener('click', handleChangeSelected(event));
 //   fourthLi.addEventListener('click', handleChangeSelected(event));
 // }
+
+document.addEventListener('click', function (event) {
+  if (event.target.classList.contains('pixel') ) {
+    console.log(event.target.classList.contains('pixel'));
+    // document.body.style.backgroundColor = "red";
+    // event.target.classList.contains('pixel').style.backgroundColor = 'black';
+  }
+}, false);
