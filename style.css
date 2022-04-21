@@ -32,5 +32,5 @@
     display: inline-block;
     border: solid black 1px;
     background-color: white;
-    margin: -2px;
+    box-sizing: border-box;
   }
