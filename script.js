@@ -79,8 +79,7 @@ selectAllPixels[i].style.backgroundColor = "white";
 
 document.addEventListener('click', function (event) {
   if (event.target.classList.contains('pixel') ) {
-    console.log(event.target.classList.contains('pixel'));
-    // document.body.style.backgroundColor = "red";
+    event.target.style.backgroundColor = "red";
     // event.target.classList.contains('pixel').style.backgroundColor = 'black';
   }
 }, false);
