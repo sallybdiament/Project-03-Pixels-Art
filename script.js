@@ -43,7 +43,7 @@ secondLi.addEventListener('click', function () {
   thirdLi.classList.remove('selected');
   fourthLi.classList.remove('selected');
   colorToFill = 'blue';
-})
+});
 
 thirdLi.addEventListener('click', function () {
   firstLi.classList.remove('selected');
@@ -61,15 +61,13 @@ fourthLi.addEventListener('click', function () {
   console.log(colorToFill);
 });
 
-
-
 const botaoLimpar = document.getElementById('clear-board');
 console.log(botaoLimpar);
 const selectAllPixels = document.querySelectorAll('div.pixel');
 
 botaoLimpar.addEventListener('click', function () {
-  for (i = 0; i < 25; i += 1) {
-    selectAllPixels[i].style.backgroundColor = "white";
+  for (let index = 0; index < 25; index += 1) {
+    selectAllPixels[index].style.backgroundColor = 'white';
   }
 });
 
