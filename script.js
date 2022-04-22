@@ -27,7 +27,7 @@ const secondLi = document.getElementsByClassName('color')[1];
 const thirdLi = document.getElementsByClassName('color')[2];
 const fourthLi = document.getElementsByClassName('color')[3];
 
-let colorToFill = '';
+let colorToFill = 'black';
 
 window.onload = function (){
 
