@@ -29,6 +29,8 @@ const fourthLi = document.getElementsByClassName('color')[3];
 
 let colorToFill = '';
 
+window.onload = function (){
+
 firstLi.addEventListener('click', function () {
   secondLi.classList.remove('selected');
   thirdLi.classList.remove('selected');
@@ -77,3 +79,5 @@ document.addEventListener('click', function (event) {
     // event.target.classList.contains('pixel').style.backgroundColor = 'black';
   }
 }, false);
+
+}
