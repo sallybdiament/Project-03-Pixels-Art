@@ -1,11 +1,12 @@
 const pixelBoard = document.getElementById('pixel-board');
+let numberOfPixels = 5;
 
 function criaTabela() {
-  for (let index = 1; index < 6; index += 1) {
+  for (let index = 1; index <= numberOfPixels; index += 1) {
     const divLinhas = document.createElement('div');
     divLinhas.className = 'divLinhas';
     pixelBoard.appendChild(divLinhas);
-    for (let i = 1; i < 6; i += 1) {
+    for (let i = 1; i <= numberOfPixels; i += 1) {
       const divPixel = document.createElement('div');
       divPixel.className = 'pixel';
       divLinhas.appendChild(divPixel);
@@ -13,7 +14,47 @@ function criaTabela() {
   }
 }
 
+// let inputBoardSize;
+
+let generateBoard;
+let divFilhas = document.querySelectorAll('.pixel');
+
 criaTabela();
+// function definingBoardSize() {
+  const inputBoardSize = document.getElementById('board-size');
+  generateBoard = document.getElementById('generate-board');
+  generateBoard.addEventListener('click', function () {
+   apagar();
+    numberOfPixels = parseInt(inputBoardSize.value);
+    if (inputBoardSize.value === '') {
+      alert('Board inválido!');
+    }
+    else if (parseInt(inputBoardSize.value) < 5){
+      numberOfPixels = 5;
+      criaTabela();
+    }
+    else if (parseInt(inputBoardSize.value) > 50){
+      numberOfPixels = 50;
+      criaTabela();
+    }
+    else criaTabela();
+  });
+// }
+// definingBoardSize();
+
+
+function apagar(){
+  let classePixel = document.getElementsByClassName('pixel');
+  for (let i = classePixel.length -1 ; i >=0 ; i --){
+    classePixel[i].remove();
+  }
+  let classeDivLinhas = document.getElementsByClassName('divLinhas');
+  for (let i = classeDivLinhas.length -1 ; i >=0 ; i --){
+    classeDivLinhas[i].remove();
+  }
+}
+
+
 
 const primeiraCor = document.getElementsByClassName('color')[0];
 primeiraCor.classList += ' selected';

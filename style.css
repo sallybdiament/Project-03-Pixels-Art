@@ -50,3 +50,12 @@
   margin-left: 200px;
   padding-top: 20px;
 }
+
+#board-size {
+  width: 100px;
+}
+
+#button_VQV {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
