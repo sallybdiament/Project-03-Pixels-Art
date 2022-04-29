@@ -6,11 +6,11 @@
   border: black solid 1px;
 }
 
-#color-palette li:nth-of-type( 1 ) {
+/* #color-palette li:nth-of-type( 1 ) {
   background-color: black;
-}
+} */
 
-#color-palette li:nth-of-type( 2 ) {
+/* #color-palette li:nth-of-type( 2 ) {
   background-color: blue;
 }
 
@@ -18,12 +18,13 @@
   background-color: purple;
 }
 
-#color-palette li:nth-of-type( 4 ) {
+/* #color-palette li:nth-of-type( 4 ) {
   background-color: red;
-}
+} */ */
 
 #pixel-board {
   margin-left: 130px;
+  padding-left: 100px;
 }
 
 .pixel {
@@ -40,15 +41,11 @@
 }
 
 #clear-board {
-  background-color: grey;
   font-size: 20px;
-  font-family: Roboto, system-ui, sans-serif;
   text-align: center;
-  color: white;
   width: 100px;
   height: 40px;
   margin-left: 200px;
-  padding-top: 20px;
 }
 
 #board-size {

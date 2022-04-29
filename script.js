@@ -14,70 +14,90 @@ function criaTabela() {
   }
 }
 
-// let inputBoardSize;
-
 let generateBoard;
-let divFilhas = document.querySelectorAll('.pixel');
 
 criaTabela();
+
 // function definingBoardSize() {
-  const inputBoardSize = document.getElementById('board-size');
-  generateBoard = document.getElementById('generate-board');
-  generateBoard.addEventListener('click', function () {
-   apagar();
-    numberOfPixels = parseInt(inputBoardSize.value);
-    if (inputBoardSize.value === '') {
-      alert('Board inválido!');
-    }
-    else if (parseInt(inputBoardSize.value) < 5){
-      numberOfPixels = 5;
-      criaTabela();
-    }
-    else if (parseInt(inputBoardSize.value) > 50){
-      numberOfPixels = 50;
-      criaTabela();
-    }
-    else criaTabela();
-  });
+const inputBoardSize = document.getElementById('board-size');
+generateBoard = document.getElementById('generate-board');
+generateBoard.addEventListener('click', function () {
+  apagar();
+  numberOfPixels = parseInt(inputBoardSize.value);
+  if (inputBoardSize.value === '') {
+    alert('Board inválido!');
+  }
+  else if (parseInt(inputBoardSize.value) < 5) {
+    numberOfPixels = 5;
+  }
+  else if (parseInt(inputBoardSize.value) > 50) {
+    numberOfPixels = 50;
+  }
+  criaTabela();
+});
+
 // }
 // definingBoardSize();
 
-
-function apagar(){
+function apagar() {
   let classePixel = document.getElementsByClassName('pixel');
-  for (let i = classePixel.length -1 ; i >=0 ; i --){
+  for (let i = classePixel.length - 1; i >= 0; i--) {
     classePixel[i].remove();
   }
   let classeDivLinhas = document.getElementsByClassName('divLinhas');
-  for (let i = classeDivLinhas.length -1 ; i >=0 ; i --){
+  for (let i = classeDivLinhas.length - 1; i >= 0; i--) {
     classeDivLinhas[i].remove();
   }
 }
 
-
-
-const primeiraCor = document.getElementsByClassName('color')[0];
-primeiraCor.classList += ' selected';
-// console.log(primeiraCor);
-
-const selectedElement = document.querySelector('.selected');
-// console.log(selectedElement);
+// const selectedElement = document.querySelector('.selected');
 
 const firstLi = document.getElementsByClassName('color')[0];
 const secondLi = document.getElementsByClassName('color')[1];
 const thirdLi = document.getElementsByClassName('color')[2];
 const fourthLi = document.getElementsByClassName('color')[3];
 
-let colorToFill = 'black';
+const botaoLimpar = document.getElementById('clear-board');
+const selectAllPixels = document.querySelectorAll('div.pixel');
 
-window.onload = function (){
+botaoLimpar.addEventListener('click', function () {
+ apagar();
+ criaTabela();
+  // for (i = 0; i < numberOfPixels * numberOfPixels; i += 1) {
+  //   selectAllPixels[i].style.backgroundColor = "white";
+  // }
+});
+
+// Gerando cores aleatórias:
+function generateColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i += 1) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+console.log(generateColor()) // #8432EA
+
+const colorLi1 = 'black';
+const colorLi2 = generateColor();
+const colorLi3 = generateColor();
+const colorLi4 = generateColor();
+
+firstLi.style.backgroundColor = colorLi1;
+secondLi.style.backgroundColor = colorLi2;
+thirdLi.style.backgroundColor = colorLi3;
+fourthLi.style.backgroundColor = colorLi4;
+
+
+// window.onload = function () {
 
 firstLi.addEventListener('click', function () {
   secondLi.classList.remove('selected');
   thirdLi.classList.remove('selected');
   fourthLi.classList.remove('selected');
   firstLi.classList.add('selected');
-  colorToFill = 'black';
+  selecionaCor();
 });
 
 secondLi.addEventListener('click', function () {
@@ -85,7 +105,7 @@ secondLi.addEventListener('click', function () {
   firstLi.classList.remove('selected');
   thirdLi.classList.remove('selected');
   fourthLi.classList.remove('selected');
-  colorToFill = 'blue';
+  selecionaCor();
 });
 
 thirdLi.addEventListener('click', function () {
@@ -93,32 +113,32 @@ thirdLi.addEventListener('click', function () {
   secondLi.classList.remove('selected');
   fourthLi.classList.remove('selected');
   thirdLi.classList.add('selected');
-  colorToFill = 'purple';
+  selecionaCor();
 });
 fourthLi.addEventListener('click', function () {
   firstLi.classList.remove('selected');
   secondLi.classList.remove('selected');
   thirdLi.classList.remove('selected');
   fourthLi.classList.add('selected');
-  colorToFill = 'red';
-  console.log(colorToFill);
+  selecionaCor();
 });
 
-const botaoLimpar = document.getElementById('clear-board');
-console.log(botaoLimpar);
-const selectAllPixels = document.querySelectorAll('div.pixel');
-
-botaoLimpar.addEventListener('click', function () {
-  for (let index = 0; index < 25; index += 1) {
-    selectAllPixels[index].style.backgroundColor = 'white';
-  }
-});
+let colorToFill = 'black';
+function selecionaCor(){
+if (secondLi.classList.contains('selected') === true) {
+  colorToFill = colorLi2;
+} else if (thirdLi.classList.contains('selected') === true) {
+  colorToFill = colorLi3;
+} else if (fourthLi.classList.contains('selected') === true) {
+  colorToFill = colorLi4;
+} else { colorToFill = 'black' };
+};
 
 document.addEventListener('click', function (event) {
   if (event.target.classList.contains('pixel')) {
     event.target.style.backgroundColor = colorToFill;
-    // event.target.classList.contains('pixel').style.backgroundColor = 'black';
   }
 }, false);
 
-}
+// }
+
