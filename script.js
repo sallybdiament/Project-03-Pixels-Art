@@ -14,13 +14,11 @@ function criaTabela() {
   }
 }
 
-let generateBoard;
-
 criaTabela();
 
 // function definingBoardSize() {
 const inputBoardSize = document.getElementById('board-size');
-generateBoard = document.getElementById('generate-board');
+const generateBoard = document.getElementById('generate-board');
 generateBoard.addEventListener('click', function () {
   apagar();
   numberOfPixels = parseInt(inputBoardSize.value);
